@@ -1,0 +1,5 @@
+2025-07-21 10:12:00 INFO User login from 192.168.1.10
+2025-07-21 10:12:05 ERROR Could not connect to database
+2025-07-21 10:12:10 WARNING Disk usage exceeds 90%
+2025-07-21 10:12:15 INFO User logout from 192.168.1.10
+2025-07-21 10:12:20 INFO User login from 192.168.1.11
