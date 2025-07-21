@@ -1,0 +1,9 @@
+===== System Health Monitor =====
+Reading data from: system_data.txt
+
+CPU Usage: 72%  - OK
+Memory Usage: 65%  - OK
+Disk Usage: 87%  - WARNING (threshold: 85%)
+Load Average: 1.10  - WARNING (threshold: 1.0)
+
+===== End of Report =====
