@@ -15,3 +15,18 @@ LOG Anylyzer
 ✅ Top IPs (if present)
 
 ✅ Most frequent log messages (excluding timestamp/level)
+
+
+System Health Monitor
+
+🎯 Features Included
+
+✅ Input validation (file existence and readability)
+
+✅ Data parsing
+
+✅ Threshold checking
+
+✅ Clear OK/WARNING messages
+
+✔ Easy to extend
