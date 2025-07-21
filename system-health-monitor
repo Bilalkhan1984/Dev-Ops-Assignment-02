@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# System Health Monitor Script
+# Usage: ./my_system_monitor.sh
+
+DATA_FILE="system_data.txt"
+
+# Thresholds
+CPU_THRESHOLD=75
+MEM_THRESHOLD=80
+DISK_THRESHOLD=85
+LOAD_THRESHOLD=1.0
+
+# === Validate the system data file ===
+if [[ ! -f "$DATA_FILE" ]]; then
+  echo "Error: $DATA_FILE not found. Make sure to run ./generate_system_data.sh first."
+  exit 1
+fi
+
+if [[ ! -r "$DATA_FILE" ]]; then
+  echo "Error: $DATA_FILE is not readable."
+  exit 1
+fi
+
+# === Read and parse data ===
+CPU=$(grep -i "CPU:" "$DATA_FILE" | awk -F':' '{print $2}' | tr -d ' %')
+MEMORY=$(grep -i "Memory:" "$DATA_FILE" | awk -F':' '{print $2}' | tr -d ' %')
+DISK=$(grep -i "Disk:" "$DATA_FILE" | awk -F':' '{print $2}' | tr -d ' %')
+LOAD=$(grep -i "Load:" "$DATA_FILE" | awk -F':' '{print $2}' | tr -d ' ')
+
+echo "===== System Health Monitor ====="
+echo "Reading data from: $DATA_FILE"
+echo
+
+# === Function to print status ===
+print_status() {
+  local label=$1
+  local value=$2
+  local threshold=$3
+  local unit=$4
+
+  if [[ -z "$value" ]]; then
+    echo "$label: ERROR (missing data)"
+    return
+  fi
+
+  # Use bc to compare floats
+  result=$(echo "$value > $threshold" | bc)
+  if [[ "$result" -eq 1 ]]; then
+    echo "$label: $value$unit  - WARNING (threshold: $threshold$unit)"
+  else
+    echo "$label: $value$unit  - OK"
+  fi
+}
+
+# === Display system health status ===
+print_status "CPU Usage" "$CPU" "$CPU_THRESHOLD" "%"
+print_status "Memory Usage" "$MEMORY" "$MEM_THRESHOLD" "%"
+print_status "Disk Usage" "$DISK" "$DISK_THRESHOLD" "%"
+print_status "Load Average" "$LOAD" "$LOAD_THRESHOLD" ""
+
+echo
+echo "===== End of Report ====="
