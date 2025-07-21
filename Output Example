@@ -1,0 +1,21 @@
+===== Log File Analysis =====
+Analyzing file: sample_application.log
+
+Total log entries: 5
+INFO entries:    3
+WARNING entries: 1
+ERROR entries:   1
+Date range:      2025-07-21 to 2025-07-21
+
+Top 5 IP addresses:
+      2 192.168.1.10
+      1 192.168.1.11
+
+Top 5 frequent messages:
+      1 User logout from 192.168.1.10
+      1 User login from 192.168.1.10
+      1 User login from 192.168.1.11
+      1 Could not connect to database
+      1 Disk usage exceeds 90%
+
+===== End of Report =====
