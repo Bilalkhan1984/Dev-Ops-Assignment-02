@@ -1,6 +1,6 @@
 # Dev-Ops-Assignment-02
 
-LOG Anylyzer
+**LOG ANALYZER**
 
 🎯 Features Included
 
@@ -17,7 +17,7 @@ LOG Anylyzer
 ✅ Most frequent log messages (excluding timestamp/level)
 
 
-System Health Monitor
+**SYSTEM HEALTH MONITOR**
 
 🎯 Features Included
 
