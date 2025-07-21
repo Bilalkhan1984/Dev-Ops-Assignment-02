@@ -29,4 +29,4 @@ System Health Monitor
 
 ✅ Clear OK/WARNING messages
 
-✔ Easy to extend
+✅ Easy to extend
